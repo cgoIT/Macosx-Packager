@@ -1,0 +1,107 @@
+////////////////////////////////////////////////////////////////////////////////////
+//                                                                                //
+// OCSINVENTORY-NG                                                                //
+//                                                                                //
+// Copyleft Guillaume PROTET 2012                                                 //
+// Web : http://www.ocsinventory-ng.org                                           //
+//                                                                                //
+//                                                                                //
+// This code is open source and may be copied and modified as long as the source  //
+// code is always made freely available.                                          //
+// Please refer to the General Public Licence http://www.gnu.org/                 //
+//                                                                                //
+////////////////////////////////////////////////////////////////////////////////////
+
+
+//Yes button
+"Yes" = "Ja";
+
+//No button
+"No" = "Nein";
+
+//Warning about invalid OCS package file
+"Invalid_pkg_file" = "Ungültige OCS MacOSX agent installer Datei";
+
+//Warning about invalid OCS package comment
+"Invalid_pkg_file_comment" = "Bitte wählen Sie eine OCS MacOSX agent installer pkg Datei aus";
+
+//Warning about invalid server address
+"Invalid_srv_addr" = "Ungültige OCS Server Adresse";
+
+//Warning about invalid server address comment
+"Invalid_srv_addr_comment" = "Bitte prüfen Sie die eingegebene OCS Server Adresse";
+
+//Warning about missing certificate file
+"Missing_cert_warn" = "Sie haben die Download-Funktion aktiviert, aber Sie geben keine Zertifikatsdatei an... \n\n\nWollen Sie fortfahren ?";
+
+//Warning about missing certificate file comment
+"Missing_cert_warn_comment" = "Wenn Sie keine Zertifikatsdatei angeben, funktioniert die Download-Funktion nicht";
+
+//Peridocity warn
+"Periodicity_warn"="Ungültiger Periodizitätswert";
+
+//Periodicity warn comment
+"Periodicity_warn_comment"="Bitte geben Sie einen gültigen Zahlenwert ein";
+
+//Warning about already existing package file
+"Package_already_exists_warn" = "%@ Datei existiert bereits im Exportverzeichnis...\n\n Wollen Sie fortfahren ?";
+
+//Warning about already existing package file comment
+"Package_already_exists_warn_comment"= "Die vorherige %@-Datei wird gelöscht.";
+
+//Warning about package remove error
+"Package_remove_error_warn" = "Fehler beim Entfernen der %@-Datei !!!" ;
+
+//Warning about package remove error comment
+"Package_remove_error_warn_comment" = "Prüfen Sie, ob Sie genügend Berechtigungen für die vorhandene Datei haben" ;
+
+//Warning about package copy error
+"Package_copy_error_warn" = "Fehler beim Kopieren der %@-Datei !!!";
+
+//Warning about package copy error comment
+"Package_copy_error_warn_comment" = "Prüfen Sie, ob Sie genügend Berechtigungen haben, um die Quelldatei zu lesen und die neue Datei zu schreiben";
+
+//Warning about package write error comment
+"Package_write_error_warn_comment" = "Prüfen Sie, ob Sie genügend Berechtigungen haben, um eine neue %@-Datei zu schreiben";
+
+//Warning about plugins directory remove error
+"Plugins_remove_error_warn" = "Fehler beim Entfernen des Plugins-Verzeichnisses in der %@-Datei !!!";
+
+//Warning about preinstall copy error
+"Preinstall_copy_error_warn" = "Fehler beim Kopieren der Vorinstallationsdatei !!!";
+
+//Warning about preupgrade copy error
+"Preupgrade_copy_error_warn" = "Fehler beim Kopieren der Pre-Upgrade-Datei !!!";
+
+//Warning about ocsinventory-agent.cfg file write error
+"Configuration_file_write_error_warn" = "Fehler beim Erstellen der Datei ocsinventory-agent.cfg !!!";
+
+//Warning about modules.conf file write error
+"Modules_file_write_error_warn" = "Fehler beim Erstellen der Datei modules.conf !!!";
+
+//Warning about cacert.pem file copy error
+"Cacert_file_copy_error_warn" = "Fehler beim Kopieren der Datei cacert.pem !!!";
+
+//Warning about org.ocsng.agent.plist file write error
+"Launchd_file_write_error_warn" = "Fehler beim Erstellen der Datei org.ocsng.agent.plist !!!";
+
+//Warning about now file write error
+"Now_file_write_error_warn" = "Fehler beim Erstellen der now-Datei !!!";
+
+//Message for succefull created package
+"Package_succesfully_created" = "OCS MacOSX-Agent benutzerdefiniertes Installationspaket erfolgreich erstellt";
+
+//Message for succefull created package_comment
+"Package_succesfully_created_comment" = "%@-Datei wurde im %@-Verzeichnis erstellt";
+
+//Warning about invalid export path
+"Invalid_export_path" = "Ungültiger Exportpfad";
+
+//Warning about invalid export path comment
+"Invalid_export_path_comment" = "Bitte wählen Sie einen Exportpfad";
+
+//Warning about invalid export file name
+"Invalid_export_file_name" = "Ungültiger Dateiname";
+
+//Warning about invalid export file name comment
+"Invalid_export_file_name_comment" = "Bitte geben Sie einen gültigen Dateinamen ein";

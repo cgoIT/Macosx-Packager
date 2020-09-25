@@ -21,14 +21,38 @@
 
 //Accessors for server variable
 - (NSString *) server {
-	return [[server retain] autorelease];
+    return [[server retain] autorelease];
 }
 
 - (void) setServer:(NSString *)newServer {
-	if (server != newServer) {
-		[server release];
-		server = [newServer copy];
-	}
+    if (server != newServer) {
+        [server release];
+        server = [newServer copy];
+    }
+}
+
+//Accessors for user variable
+- (NSString *) user {
+    return [[user retain] autorelease];
+}
+
+- (void) setUser:(NSString *)newUser {
+    if (user != newUser) {
+        [user release];
+        user = [newUser copy];
+    }
+}
+
+//Accessors for password variable
+- (NSString *) password {
+    return [[password retain] autorelease];
+}
+
+- (void) setPassword:(NSString *)newPassword {
+    if (password != newPassword) {
+        [password release];
+        password = [newPassword copy];
+    }
 }
 
 //Accessors for tag variable

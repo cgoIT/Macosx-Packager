@@ -50,7 +50,7 @@
 
 - (IBAction) generatePackage:(id)sender {
 	
-	NSMutableString *ocsAgentCfgContent;
+    NSMutableString *ocsAgentCfgContent = nil;
 	NSMutableString *modulesCfgContent;
 	NSMutableString *protocolName;
 	NSMutableString *launchdCfgFile;
@@ -58,14 +58,14 @@
 	NSString *finalMessageComment;
 
 	//No export path filled
-	if ( ![[exportPath stringValue] length] > 0 ) {
-		[context displayAlert:NSLocalizedString(@"Invalid_export_path", @"Warning about invalid export path") comment:NSLocalizedString(@"Invalid_export_path_comment", @"Warning about invalid export path comment") style:NSCriticalAlertStyle];
+	if ( !([[exportPath stringValue] length] > 0) ) {
+		[context displayAlert:NSLocalizedString(@"Invalid_export_path", @"Warning about invalid export path") comment:NSLocalizedString(@"Invalid_export_path_comment", @"Warning about invalid export path comment") style:NSAlertStyleCritical];
 		return;
 	}
 	
 	//No file name filled
-	if ( ![[exportFileName stringValue] length] > 0 ) {
-		[context displayAlert:NSLocalizedString(@"Invalid_export_file_name", @"Warning about invalid export file name") comment:NSLocalizedString(@"Invalid_export_file_name_comment", @"Warning about invalid export file name comment") style:NSCriticalAlertStyle];
+	if ( !([[exportFileName stringValue] length] > 0) ) {
+		[context displayAlert:NSLocalizedString(@"Invalid_export_file_name", @"Warning about invalid export file name") comment:NSLocalizedString(@"Invalid_export_file_name_comment", @"Warning about invalid export file name comment") style:NSAlertStyleCritical];
 		return;
 	}
 	
@@ -73,8 +73,9 @@
 	NSString *pkgFileName = [NSString stringWithFormat:@"%@.pkg",[exportFileName stringValue]];
 	NSString *ocsPkgPath = [NSString stringWithFormat:@"%@/%@",[exportPath stringValue],pkgFileName];
 	NSString *ocsPkgPluginsPath = [NSString stringWithFormat:@"%@/%@/Contents/Plugins",[exportPath stringValue],pkgFileName];
-	NSString *ocsPkgResourcesPath = [NSString stringWithFormat:@"%@/%@/Contents/Resources",[exportPath stringValue],pkgFileName];
-	NSString *ocsPkgCfgFilePath = [NSString stringWithFormat:@"%@/%@/Contents/Resources/ocsinventory-agent.cfg",[exportPath stringValue],pkgFileName];
+    NSString *ocsPkgResourcePath = [NSString stringWithFormat:@"%@/%@/Contents/Resources",[exportPath stringValue],pkgFileName];
+    NSString *ocsPkgDistFilePath = [NSString stringWithFormat:@"%@/%@/Contents/distribution.dist",[exportPath stringValue],pkgFileName];
+    NSString *ocsPkgCfgFilePath = [NSString stringWithFormat:@"%@/%@/Contents/Resources/ocsinventory-agent.cfg",[exportPath stringValue],pkgFileName];
 	NSString *ocsPkgModulesFilePath = [NSString stringWithFormat:@"%@/%@/Contents/Resources/modules.conf",[exportPath stringValue],pkgFileName];
 	NSString *ocsPkgServerdirFilePath = [NSString stringWithFormat:@"%@/%@/Contents/Resources/serverdir",[exportPath stringValue],pkgFileName];
 	NSString *ocsPkgCacertFilePath = [NSString stringWithFormat:@"%@/%@/Contents/Resources/cacert.pem",[exportPath stringValue],pkgFileName];
@@ -89,7 +90,7 @@
 		[existsWrn addButtonWithTitle:NSLocalizedString(@"No", @"No Button")];
 		[existsWrn setMessageText:[NSString stringWithFormat:NSLocalizedString(@"Package_already_exists_warn",@"Warning about already existing package file"),pkgFileName]];
 		[existsWrn setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"Package_already_exists_warn_comment",@"Warning about already existing package file comment"),pkgFileName]];
-		[existsWrn setAlertStyle:NSCriticalAlertStyle]; 
+		[existsWrn setAlertStyle:NSAlertStyleCritical];
 		
 		if ([existsWrn runModal] != NSAlertFirstButtonReturn) {
 			//Button 'No' was clicked, we don't continue
@@ -99,48 +100,67 @@
 			//We delete file
 			[existsWrn release];
 			if(![self removeFile:ocsPkgPath]) {
-				[context displayAlert:[NSString stringWithFormat:NSLocalizedString(@"Package_remove_error_warn", @"Warning about package remove error"),pkgFileName] comment:NSLocalizedString(@"Package_remove_error_warn_comment",@"Warning about package remove error comment") style:NSCriticalAlertStyle];
+				[context displayAlert:[NSString stringWithFormat:NSLocalizedString(@"Package_remove_error_warn", @"Warning about package remove error"),pkgFileName] comment:NSLocalizedString(@"Package_remove_error_warn_comment",@"Warning about package remove error comment") style:NSAlertStyleCritical];
 				return;
 			}
 		}
 	}
 	
 	//We create new package  file
-	if (![filemgr copyPath:[configuration ocsPkgFilePath] toPath:ocsPkgPath handler:nil]) {
-		[context displayAlert:[NSString stringWithFormat: NSLocalizedString(@"Package_copy_error_warn", @"Warning about package copy error"),pkgFileName] comment:NSLocalizedString(@"Package_copy_error_warn_comment",@"Warning about package copy error comment") style:NSCriticalAlertStyle];
-		return;
-	}
-	
+    if (![filemgr copyItemAtPath:[configuration ocsPkgFilePath] toPath:ocsPkgPath error:NULL]) {
+        [context displayAlert:[NSString stringWithFormat: NSLocalizedString(@"Package_copy_error_warn", @"Warning about package copy error"),pkgFileName] comment:NSLocalizedString(@"Package_copy_error_warn_comment",@"Warning about package copy error comment") style:NSAlertStyleCritical];
+        return;
+    }
+    
 	//We delete plugins directory for future silent installs
 	if (![self removeFile:ocsPkgPluginsPath]) {
-		[context displayAlert:[NSString stringWithFormat:NSLocalizedString(@"Plugins_remove_error_warn", @"Warning about plugins directory remove error"),pkgFileName] comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment",@"Warning about package write error comment"),pkgFileName] style:NSCriticalAlertStyle];
+		[context displayAlert:[NSString stringWithFormat:NSLocalizedString(@"Plugins_remove_error_warn", @"Warning about plugins directory remove error"),pkgFileName] comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment",@"Warning about package write error comment"),pkgFileName] style:NSAlertStyleCritical];
 		[self removeFile:ocsPkgPath];
 		return;
 	}
 	
-	//We copy preinstall and preupgrade scripts
+	//We copy preinstall script
 	NSString *preinstallPath = [NSString stringWithFormat:@"%@/preinstall",[[NSBundle mainBundle] resourcePath]];
 	
 	if ([filemgr fileExistsAtPath:preinstallPath]) {
-		if (![filemgr copyPath:preinstallPath toPath:[NSString stringWithFormat:@"%@/preinstall",ocsPkgResourcesPath] handler:nil]) {
-			[context displayAlert:NSLocalizedString(@"Preinstall_copy_error_warn",@"Warning about preinstall copy error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSCriticalAlertStyle];
-			[self removeFile:ocsPkgPath];
-			return;
-		}
-		
-		if (![filemgr copyPath:preinstallPath toPath:[NSString stringWithFormat:@"%@/preupgrade",ocsPkgResourcesPath] handler:nil]) {
-			[context displayAlert:NSLocalizedString(@"Preupgrade_copy_error_warn",@"Warning about preupgrade copy error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSCriticalAlertStyle];
+		if (![filemgr copyItemAtPath:preinstallPath toPath:[NSString stringWithFormat:@"%@/preinstall",ocsPkgResourcePath] error:NULL]) {
+			[context displayAlert:NSLocalizedString(@"Preinstall_copy_error_warn",@"Warning about preinstall copy error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSAlertStyleCritical];
 			[self removeFile:ocsPkgPath];
 			return;
 		}
 	}
 			
+    //We copy distribution.dist
+    NSString *distributionDistPath = [NSString stringWithFormat:@"%@/distribution.dist",[[NSBundle mainBundle] resourcePath]];
+    
+    if ([filemgr fileExistsAtPath:distributionDistPath]) {
+        if (![self removeFile:ocsPkgDistFilePath]) {
+            [context displayAlert:[NSString stringWithFormat:NSLocalizedString(@"Plugins_remove_error_warn", @"Warning about plugins directory remove error"),pkgFileName] comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment",@"Warning about package write error comment"),pkgFileName] style:NSAlertStyleCritical];
+            [self removeFile:ocsPkgPath];
+            return;
+        }
+        
+        if (![filemgr copyItemAtPath:distributionDistPath toPath:ocsPkgDistFilePath error:NULL]) {
+            [context displayAlert:NSLocalizedString(@"DistributionDist_copy_error_warn",@"Warning about distribution.dist copy error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSAlertStyleCritical];
+            [self removeFile:ocsPkgPath];
+            return;
+        }
+    }
+            
 	//We create agent configuration files
 	if ([[configuration server] length] > 0) {
 		ocsAgentCfgContent = [@"server=" mutableCopy];
 		
 		//Adding server value to the mutable string
 		[ocsAgentCfgContent appendString:[configuration protocol]];
+        
+        if ([[configuration user] length] > 0 && [[configuration password] length] > 0) {
+            [ocsAgentCfgContent appendString:[configuration user]];
+            [ocsAgentCfgContent appendString:@":"];
+            [ocsAgentCfgContent appendString:[configuration password]];
+            [ocsAgentCfgContent appendString:@"@"];
+        }
+        
 		[ocsAgentCfgContent appendString:[configuration server]];
 		[ocsAgentCfgContent appendString:@"/ocsinventory"];
 		[ocsAgentCfgContent appendString:@"\n"];
@@ -169,9 +189,13 @@
 	} else {
 		[ocsAgentCfgContent appendString:@"lazy=0\n"];
 	}
+    
+    if ([[configuration protocol] isEqualToString:@"https://"]) {
+        [ocsAgentCfgContent appendString:@"ssl=1\n"];
+    }
 	
 	if(![ocsAgentCfgContent writeToFile:ocsPkgCfgFilePath atomically: YES encoding:NSUTF8StringEncoding error:NULL]) {
-		[context displayAlert:NSLocalizedString(@"Configuration_file_write_error_warn",@"Warning about ocsinventory-agent.cfg file write error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSCriticalAlertStyle];
+		[context displayAlert:NSLocalizedString(@"Configuration_file_write_error_warn",@"Warning about ocsinventory-agent.cfg file write error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSAlertStyleCritical];
 		[self removeFile:ocsPkgPath];
 		return;
 	}
@@ -201,7 +225,7 @@
 									];
 	
 	if (![modulesCfgContent writeToFile:ocsPkgModulesFilePath atomically: YES encoding:NSUTF8StringEncoding error:NULL]) {
-		[context displayAlert:NSLocalizedString(@"Modules_file_write_error_warn",@"Warning about modules.conf file write error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSCriticalAlertStyle];
+		[context displayAlert:NSLocalizedString(@"Modules_file_write_error_warn",@"Warning about modules.conf file write error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSAlertStyleCritical];
 		[self removeFile:ocsPkgPath];
 		return;
 	}
@@ -213,11 +237,15 @@
 		protocolName = [[configuration protocol] mutableCopy];
 		[protocolName replaceOccurrencesOfString:@"/" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [protocolName length])];
 		
-		serverDir = [NSString stringWithFormat:@"/var/lib/ocsinventory-agent/%@__%@_ocsinventory", protocolName, [configuration server]];
+        if ([[configuration user] length] > 0 && [[configuration password] length] > 0) {
+            serverDir = [NSString stringWithFormat:@"/var/lib/ocsinventory-agent/%@__%@:%@@%@_ocsinventory", protocolName, [configuration user], [configuration password], [configuration server]];
+        } else {
+            serverDir = [NSString stringWithFormat:@"/var/lib/ocsinventory-agent/%@__%@_ocsinventory", protocolName, [configuration server]];
+        }
 		[serverDir writeToFile:ocsPkgServerdirFilePath atomically: YES encoding:NSUTF8StringEncoding error:NULL];
 		
-		if (![filemgr copyPath:[configuration cacertFilePath] toPath:ocsPkgCacertFilePath handler:nil]) {
-			[context displayAlert:NSLocalizedString(@"Cacert_file_copy_error_warn",@"Warning about cacert.pem file copy error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSCriticalAlertStyle];
+		if (![filemgr copyItemAtPath:[configuration cacertFilePath] toPath:ocsPkgCacertFilePath error:NULL]) {
+			[context displayAlert:NSLocalizedString(@"Cacert_file_copy_error_warn",@"Warning about cacert.pem file copy error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSAlertStyleCritical];
 			[self removeFile:ocsPkgPath];
 			return;
 		}
@@ -264,7 +292,7 @@
 			
 		} else {
 			//Invalid periodificty value
-			[context displayAlert:NSLocalizedString(@"Periodicity_warn", @"Peridocity warn") comment:NSLocalizedString(@"Periodicity_warn_comment", @"Periodicity warn comment") style:NSCriticalAlertStyle];
+			[context displayAlert:NSLocalizedString(@"Periodicity_warn", @"Peridocity warn") comment:NSLocalizedString(@"Periodicity_warn_comment", @"Periodicity warn comment") style:NSAlertStyleCritical];
 			[self removeFile:ocsPkgPath];
 			return;
 		}
@@ -275,7 +303,7 @@
 								  ];
 	
 	if (![launchdCfgFile writeToFile:ocsPkgLaunchdFilePath atomically: YES encoding:NSUTF8StringEncoding error:NULL]) {
-		[context displayAlert:NSLocalizedString(@"Launchd_file_write_error_warn",@"Warning about org.ocsng.agent.plit file write error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSCriticalAlertStyle];
+		[context displayAlert:NSLocalizedString(@"Launchd_file_write_error_warn",@"Warning about org.ocsng.agent.plit file write error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSAlertStyleCritical];
 		[self removeFile:ocsPkgPath];
 		return;
 	}
@@ -284,7 +312,7 @@
 	//We create now file if needed
 	if ([configuration now] == 1) {
 		if (![filemgr createFileAtPath:ocsPkgNowFilePath contents:nil attributes:nil]) {
-			[context displayAlert:NSLocalizedString(@"Now_file_write_error_warn",@"Warning about now file write error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSCriticalAlertStyle];
+			[context displayAlert:NSLocalizedString(@"Now_file_write_error_warn",@"Warning about now file write error") comment:[NSString stringWithFormat:NSLocalizedString(@"Package_write_error_warn_comment", @"Warning about package write error comment"),pkgFileName] style:NSAlertStyleCritical];
 			[self removeFile:ocsPkgPath];
 			return;
 		}
@@ -293,7 +321,7 @@
 	
 	//Everything OK and package generated succefully
 	finalMessageComment = [NSString stringWithFormat:NSLocalizedString(@"Package_succesfully_created_comment",@"Message for succefull created package_comment"), pkgFileName, [exportPath stringValue]];
-	[context displayAlert:NSLocalizedString(@"Package_succesfully_created",@"Message for succefull created package") comment:finalMessageComment style:NSInformationalAlertStyle];
+	[context displayAlert:NSLocalizedString(@"Package_succesfully_created",@"Message for succefull created package") comment:finalMessageComment style:NSAlertStyleInformational];
 	[NSApp terminate:self];
 }
 
@@ -319,11 +347,11 @@
 
 	
 	//Running browse panel
-	int result = [panel runModal];
+	int result = (int)[panel runModal];
 	
 	//Getting cacert file path
-	if (result == NSOKButton) {
-		[exportPath setStringValue:[panel filename]];
+	if (result == NSModalResponseOK) {
+		[exportPath setStringValue:[panel URL].path];
 	}
 }
 
@@ -331,7 +359,7 @@
 	BOOL returnValue = YES;
 	
 	if ([filemgr fileExistsAtPath:path]) {
-		returnValue = [filemgr removeFileAtPath:path handler:nil];
+		returnValue = [filemgr removeItemAtPath:path error:NULL];
 	}
 	
 	return returnValue;

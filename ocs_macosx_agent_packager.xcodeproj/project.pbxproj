@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,10 +13,13 @@
 		06A3D37F14E6FAA900854953 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A3D37E14E6FAA900854953 /* AppDelegate.m */; };
 		06A67C1514E1E45A008F382B /* ExportWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 06A67C1414E1E45A008F382B /* ExportWindow.nib */; };
 		06B385C414F1692F00493861 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06B385C314F1692F00493861 /* Localizable.strings */; };
-		06B3877714F1A8DA00493861 /* preinstall in Resources */ = {isa = PBXBuildFile; fileRef = 06B3877614F1A8DA00493861 /* preinstall */; };
 		06E5A2CF14F0321B00F3CF31 /* packager_logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 06E5A2CE14F0321B00F3CF31 /* packager_logo.icns */; };
 		06EAA44D14EC62D10041F6A8 /* Context.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EAA44C14EC62D10041F6A8 /* Context.m */; };
-		8D11072A0486CEB800E47090 /* ConfigurationWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* ConfigurationWindow.nib */; };
+		5C2C19DD251D395800934565 /* ConfigurationWindow.nib in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C19DB251D395800934565 /* ConfigurationWindow.nib */; };
+		5C2C19E5251D9ED200934565 /* 12696216.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C19E4251D9ED200934565 /* 12696216.png */; };
+		5C2C19E7251D9F9E00934565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C19E6251D9F9E00934565 /* Assets.xcassets */; };
+		5C2C19E9251DA8C100934565 /* distribution.dist in Resources */ = {isa = PBXBuildFile; fileRef = 5C2C19E8251DA8C100934565 /* distribution.dist */; };
+		5C673679251D152D00755010 /* preinstall in Resources */ = {isa = PBXBuildFile; fileRef = 5C673676251D152D00755010 /* preinstall */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -64,31 +67,35 @@
 /* Begin PBXFileReference section */
 		06007C5014E32CC900B9ED43 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		06007C5114E32CC900B9ED43 /* Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
-		060111251504015C00D694E3 /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/ExportWindow.nib; sourceTree = "<group>"; };
-		060111261504016D00D694E3 /* French */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = French; path = French.lproj/ConfigurationWindow.nib; sourceTree = "<group>"; };
 		06047DB114DEF51B00CCCAD4 /* ConfigurationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationWindowController.h; sourceTree = "<group>"; };
 		06047DB214DEF51B00CCCAD4 /* ConfigurationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationWindowController.m; sourceTree = "<group>"; };
 		0628DF2014E096D800E7FC16 /* ExportWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportWindowController.h; sourceTree = "<group>"; };
 		0628DF2114E096D800E7FC16 /* ExportWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExportWindowController.m; sourceTree = "<group>"; };
 		06A3D37D14E6FAA900854953 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		06A3D37E14E6FAA900854953 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		06A67C1214E1E44B008F382B /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ExportWindow.nib; sourceTree = "<group>"; };
-		06B385C114F1690E00493861 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
-		06B385C514F1693700493861 /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/Localizable.strings; sourceTree = "<group>"; };
-		06B3877614F1A8DA00493861 /* preinstall */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = preinstall; path = scripts/preinstall; sourceTree = "<group>"; };
 		06E5A2CE14F0321B00F3CF31 /* packager_logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = packager_logo.icns; path = icons/packager_logo.icns; sourceTree = "<group>"; };
 		06EAA44B14EC62D10041F6A8 /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
 		06EAA44C14EC62D10041F6A8 /* Context.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Context.m; sourceTree = "<group>"; };
-		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/ConfigurationWindow.nib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* ocs_macosx_agent_packager_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ocs_macosx_agent_packager_Prefix.pch; sourceTree = "<group>"; };
+		5C2C19DA251D364900934565 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/ExportWindow.nib; sourceTree = "<group>"; };
+		5C2C19DC251D395800934565 /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/ConfigurationWindow.nib; sourceTree = "<group>"; };
+		5C2C19E0251D39FB00934565 /* de */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = de; path = de.lproj/ConfigurationWindow.nib; sourceTree = "<group>"; };
+		5C2C19E3251D3A0F00934565 /* de */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = de; path = de.lproj/ExportWindow.nib; sourceTree = "<group>"; };
+		5C2C19E4251D9ED200934565 /* 12696216.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 12696216.png; path = icons/12696216.png; sourceTree = "<group>"; };
+		5C2C19E6251D9F9E00934565 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ocs_macosx_agent_packager/Images.xcassets/Assets.xcassets; sourceTree = "<group>"; };
+		5C2C19E8251DA8C100934565 /* distribution.dist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = distribution.dist; sourceTree = "<group>"; };
+		5C673668251CF74F00755010 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5C673669251CF74F00755010 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5C673676251D152D00755010 /* preinstall */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = preinstall; sourceTree = "<group>"; };
+		5C67367B251D1AE600755010 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5C67367C251D1AE600755010 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* OcsInventory_MacOSX_Packager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OcsInventory_MacOSX_Packager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* ocs-macosx-agent-packager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ocs-macosx-agent-packager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +149,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* OcsInventory_MacOSX_Packager.app */,
+				8D1107320486CEB800E47090 /* ocs-macosx-agent-packager.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,6 +157,7 @@
 		29B97314FDCFA39411CA2CEA /* ocs_agent_packager */ = {
 			isa = PBXGroup;
 			children = (
+				5C673674251D147C00755010 /* Scripts */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -170,9 +178,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				06B3877614F1A8DA00493861 /* preinstall */,
+				5C2C19E8251DA8C100934565 /* distribution.dist */,
+				5C2C19E6251D9F9E00934565 /* Assets.xcassets */,
+				5C2C19E4251D9ED200934565 /* 12696216.png */,
+				5C2C19DB251D395800934565 /* ConfigurationWindow.nib */,
 				06E5A2CE14F0321B00F3CF31 /* packager_logo.icns */,
-				29B97318FDCFA39411CA2CEA /* ConfigurationWindow.nib */,
 				06A67C1414E1E45A008F382B /* ExportWindow.nib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -189,6 +199,14 @@
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		5C673674251D147C00755010 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				5C673676251D152D00755010 /* preinstall */,
+			);
+			path = Scripts;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -212,7 +230,7 @@
 			name = ocs_macosx_agent_packager;
 			productInstallPath = "$(HOME)/Applications";
 			productName = ocs_agent_packager;
-			productReference = 8D1107320486CEB800E47090 /* OcsInventory_MacOSX_Packager.app */;
+			productReference = 8D1107320486CEB800E47090 /* ocs-macosx-agent-packager.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -221,17 +239,19 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "OCS Inventory NG Team";
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ocs_macosx_agent_packager" */;
-			compatibilityVersion = "Xcode 3.0";
-			developmentRegion = English;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				Base,
+				ja,
+				en,
+				de,
+				fr,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ocs_agent_packager */;
 			projectDirPath = "";
@@ -247,12 +267,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D11072A0486CEB800E47090 /* ConfigurationWindow.nib in Resources */,
+				5C2C19E5251D9ED200934565 /* 12696216.png in Resources */,
+				5C673679251D152D00755010 /* preinstall in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				06A67C1514E1E45A008F382B /* ExportWindow.nib in Resources */,
+				5C2C19E9251DA8C100934565 /* distribution.dist in Resources */,
 				06E5A2CF14F0321B00F3CF31 /* packager_logo.icns in Resources */,
+				5C2C19DD251D395800934565 /* ConfigurationWindow.nib in Resources */,
+				5C2C19E7251D9F9E00934565 /* Assets.xcassets in Resources */,
 				06B385C414F1692F00493861 /* Localizable.strings in Resources */,
-				06B3877714F1A8DA00493861 /* preinstall in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,8 +301,8 @@
 		06A67C1414E1E45A008F382B /* ExportWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				06A67C1214E1E44B008F382B /* English */,
-				060111251504015C00D694E3 /* French */,
+				5C2C19DA251D364900934565 /* en */,
+				5C2C19E3251D3A0F00934565 /* de */,
 			);
 			name = ExportWindow.nib;
 			sourceTree = "<group>";
@@ -287,8 +310,8 @@
 		06B385C314F1692F00493861 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				06B385C114F1690E00493861 /* English */,
-				06B385C514F1693700493861 /* French */,
+				5C673669251CF74F00755010 /* en */,
+				5C67367B251D1AE600755010 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -296,16 +319,17 @@
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				089C165DFE840E0CC02AAC07 /* English */,
+				5C673668251CF74F00755010 /* en */,
+				5C67367C251D1AE600755010 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		29B97318FDCFA39411CA2CEA /* ConfigurationWindow.nib */ = {
+		5C2C19DB251D395800934565 /* ConfigurationWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				29B97319FDCFA39411CA2CEA /* English */,
-				060111261504016D00D694E3 /* French */,
+				5C2C19DC251D395800934565 /* en */,
+				5C2C19E0251D39FB00934565 /* de */,
 			);
 			name = ConfigurationWindow.nib;
 			sourceTree = "<group>";
@@ -316,7 +340,13 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 0.9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
@@ -327,12 +357,16 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)\"";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = ocs_macosx_agent_packager;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 0.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.ocsinventory-ng.ocs-macosx-agent-packager";
+				PRODUCT_NAME = "ocs-macosx-agent-packager";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -341,11 +375,12 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-					x86_64,
-				);
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CURRENT_PROJECT_VERSION = 0.9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
@@ -357,9 +392,14 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 0.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.ocsinventory-ng.ocs-macosx-agent-packager";
 				PRODUCT_NAME = OcsInventory_MacOSX_Packager;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -367,35 +407,98 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-				);
-				GCC_VERSION = 4.0;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				CURRENT_PROJECT_VERSION = 0.9;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DEVELOPMENT_TEAM = G98XTU259G;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				EXECUTABLE_EXTENSION = app;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				INFOPLIST_FILE = Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-					x86_64,
-				);
-				CURRENT_PROJECT_VERSION = "";
-				GCC_VERSION = 4.0;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				CURRENT_PROJECT_VERSION = 0.9;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DEVELOPMENT_TEAM = G98XTU259G;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
+				EXECUTABLE_EXTENSION = app;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
-				PREBINDING = NO;
+				INFOPLIST_FILE = Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Ocsinventory_MacOSX_Packager;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

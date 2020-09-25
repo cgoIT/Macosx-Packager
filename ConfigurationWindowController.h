@@ -23,7 +23,9 @@
 @interface ConfigurationWindowController : NSWindowController {
 
 	IBOutlet NSTextField *userOcsPkgFile;
-	IBOutlet NSTextField *userServer;
+    IBOutlet NSTextField *userServer;
+    IBOutlet NSTextField *userName;
+    IBOutlet NSTextField *userPassword;
 	IBOutlet NSTextField *userLogFile;
 	IBOutlet NSTextField *userTag;
 	IBOutlet NSTextField *userCacertFile;

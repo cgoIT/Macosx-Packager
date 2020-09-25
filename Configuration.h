@@ -19,6 +19,8 @@
 @interface Configuration : NSObject {
 
 	NSString *server;
+    NSString *user;
+    NSString *password;
 	NSString *tag;
 	NSString *logfile;
 	NSString *protocol;
@@ -44,6 +46,12 @@
 //Accessors for variables
 - (NSString *) server;
 - (void) setServer:(NSString *)newServer;
+
+- (NSString *) user;
+- (void) setUser:(NSString *)newUser;
+
+- (NSString *) password;
+- (void) setPassword:(NSString *)newPassword;
 
 - (NSString *) tag;
 - (void) setTag:(NSString *)newTag;

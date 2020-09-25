@@ -70,6 +70,9 @@
 //Warning about preinstall copy error
 "Preinstall_copy_error_warn" = "Error while copying preinstall file !!!";
 
+//Warning about distribution.dist copy error
+"DistributionDist_copy_error_warn" = "Error while copying distribution.dist file !!!"
+
 //Warning about preupgrade copy error
 "Preupgrade_copy_error_warn" = "Error while copying preupgrade file !!!";
 
