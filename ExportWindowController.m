@@ -262,7 +262,8 @@
 					  @"\t<string>org.ocsng.agent</string>\n"
 					  @"\t<key>ProgramArguments</key>\n"
 					  @"\t\t<array>\n"
-					  @"\t\t\t<string>/Applications/OCSNG.app/Contents/MacOS/OCSNG</string>\n"
+                      @"\t\t\t<string>/usr/local/sbin/ocs-agent-start.sh</string>\n"
+                      @"\t\t\t<string>/Applications/OCSNG.app/Contents/MacOS/OCSNG</string>\n"
 					  @"\t\t</array>\n"
 					  mutableCopy];	
 	

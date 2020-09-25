@@ -7,5 +7,11 @@
 5. Die Datei `expanded/Scripts/postinstall` bearbeiten
    1. Ersetze `launchctl load $LAUNCHDPATH/org.ocsng.agent.plist` durch `launchctl load -w $LAUNCHDPATH/org.ocsng.agent.plist`
    2. Lösche das Starten des Dienstes via `launchctl start org.ocsng.agent`
+   3. Folgender Block muss oberhalb des Ablegens der LaunchDaemon Datei eingefügt werden:
+      if [ -f $TMP_DIR/ocs-agent-start.sh ]; then
+      	cp $TMP_DIR/ocs-agent-start.sh /usr/local/sbin
+      	chown root:wheel /usr/local/sbin/ocs-agent-start.sh
+      	chmod 744 /usr/local/sbin/ocs-agent-start.sh
+      fi
 6. Das Paket über `pkgutil --flatten expanded "OCS Inventory Pkg Setup.pkg"` wieder zusammenbauen.
 7. Das neu erstellte Paket wieder in den Paketinhalt unter `Contents/Packages/OCS Inventory Pkg Setup.pkg` ablegen
